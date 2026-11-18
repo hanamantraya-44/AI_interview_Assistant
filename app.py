@@ -1,15 +1,16 @@
 import streamlit as st
 from groq import Groq
-import streamlit as st
-st.set_page_config(page_title = "About Me", page_icon = '🫡', layout= 'centered')
-st.title("Hanamantraya ")
-st.caption("UNIVERSAL BOSS ")
+st.set_page_config(page_title = "AI Interview Assistant", page_icon = '🫡', layout= 'centered')
+st.title("AI Interview Asssitant ")
+st.caption(" it is a platform for getting information")
 try:
   client = Groq(api_key = st.secrets["GROQ_API_KEY"])
-except (KeyError, FileNoteFound):
-  st.error("API Key is missing. Add it in Advance setting")
-  st.stop()
-  role = st.selectbox('Job Title', ['Machine Learning Engineering','software Engineer','promt Engineer','Devops Engineer','Other'])
-  if role == "Other":
-    st.text_input('Enter your Job Title', 'xxxxxxx')
-  
+except (KeyError, FileNorFound):
+                st.error("API Key is missing . Add it in Advance setting")
+                st.stop()
+role = st.selectbox("JOB TITLE", ['software engineer','senior software engineer', 'data analyst','prompt engineer', 'Devops engineer', 'other'])
+if role == "other":
+  st.text_input("Enter your job title ","XXXXXXX")
+role = st.selectbox("model", ['openai/gpt-oss-safeguard-20b', 'openai/gpt-oss-120b'])
+role = st.selectbox("difficult level", ['bigginer','intermidiate','advance'])
+mode = st.radio('Activity', ['generate questions', 'generate code questions', 'evaluate answer','improve answers'])
