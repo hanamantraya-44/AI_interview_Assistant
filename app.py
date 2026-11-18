@@ -14,3 +14,11 @@ if role == "other":
 role = st.selectbox("model", ['openai/gpt-oss-safeguard-20b', 'openai/gpt-oss-120b'])
 role = st.selectbox("difficult level", ['bigginer','intermidiate','advance'])
 mode = st.radio('Activity', ['generate questions', 'generate code questions', 'evaluate answer','improve answers'])
+if mode == 'Generate Questions':
+  count = st.slider("Number of Questions",1,10,5)
+elif mode == 'Generate Code Questions':
+  topic = st.selectbox('Topics', ['SQL', 'AIML', 'Python', 'DSA', 'C++/c', 'java', 'cyber security', ,'ML'])
+  count = st.slider("Number of Questions",1,10,5)
+else:
+  question = st.text_area('Enter interview question here ')
+  answer = st.text_area('enter your answer ', height = 160)
