@@ -9,3 +9,5 @@ try:
 except (KeyError, FileNoteFound):
   st.error("API Key is missing. Add it in Advance setting")
   st.stop()
+  role = st.selectbox('Job Title', ['Machine Learning Engineering','software Engineer','promt Engineer','Devops Engineer','Other'])
+  
