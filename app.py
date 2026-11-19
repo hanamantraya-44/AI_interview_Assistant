@@ -34,7 +34,7 @@ if st.button("Generate AI Response", type = "primary"):
     task = "generate" + str(count) + "Frequenrtly askedcodeing question on " + topic + " anything can be related to topic "
   elif mode == "evaluate answer":
     task = "question :" + question + "MY Answer : " + answer + "Evalute this answer based on concept, relevence , communication, length of answe. give each rating out of 5 in a list. "
-   elif mode == "improve answers":
+  elif mode == "improve answers":
      task = "question :" + question + "MY Answer : " + answer + "imporve the answern based oon choice on words key words to include. do not invent anything about candidate " 
    background = "job role :" + role + "difficult levet " + level
    with st.spinner(" generating your answer .... "):
@@ -46,3 +46,11 @@ if st.button("Generate AI Response", type = "primary"):
                      "content" : backgroound + task }],
          temprature = 0.7,
          max_tokens = 2000
+         output = response.choices[0].message.content
+         st.subheader("AI Response " )
+         st.markdown(output)
+         st.download_button("Download Response", output, file_name = "Interview_Response.txt", mime = "text/plain" )
+     except Exception as e:
+       st.error ("Api connection was unsuccessful: ", e)
+       st.info ("Please check your API key and rate limits")
+st.caption("Powed by Streamlit.io nad GitHub. Using LLM API")
